@@ -15,6 +15,7 @@ import (
 	"DNA/common/config"
 	"DNA/common/log"
 	"DNA/core/ledger"
+	"DNA/core/signature"
 	tx "DNA/core/transaction"
 	. "DNA/errors"
 	"DNA/sdk"
@@ -273,9 +274,9 @@ func sendRawTransaction(params []interface{}) map[string]interface{} {
 		if err := txn.Deserialize(bytes.NewReader(hex)); err != nil {
 			return DnaRpcInvalidTransaction
 		}
-		//if txn.TxType != tx.TransferAsset && txn.TxType != tx.BookKeeper {
-		//	return DnaRpc("invalid transaction type")
-		//}
+		if txn.TxType != tx.TransferAsset && txn.TxType != tx.BookKeeper {
+			return DnaRpc("invalid transaction type")
+		}
 		hash = txn.Hash()
 		if errCode := VerifyAndSendTx(&txn); errCode != ErrNoError {
 			return DnaRpc(errCode.Error())
@@ -842,6 +843,123 @@ func sendToAddress(params []interface{}) map[string]interface{} {
 	}
 	txHash := txn.Hash()
 	return DnaRpc(BytesToHexString(txHash.ToArrayReverse()))
+}
+
+func signMultisigTransaction(params []interface{}) map[string]interface{} {
+	if len(params) < 1 {
+		return DnaRpcNil
+	}
+	var signedrawtxn string
+	switch params[0].(type) {
+	case string:
+		signedrawtxn = params[0].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+
+	rawtxn, _ := HexStringToBytes(signedrawtxn)
+	var txn tx.Transaction
+	txn.Deserialize(bytes.NewReader(rawtxn))
+	if len(txn.Programs) <= 0 {
+		return DnaRpc("missing the first signature")
+	}
+
+	found := false
+	programHashes := txn.ParseTransactionCode()
+	for _, hash := range programHashes {
+		acct := Wallet.GetAccountByProgramHash(hash)
+		if acct != nil {
+			found = true
+			sig, _ := signature.SignBySigner(&txn, acct)
+			txn.AppendNewSignature(sig)
+		}
+	}
+	if !found {
+		return DnaRpc("error: no available account detected")
+	}
+
+	_, needsig, err := txn.ParseTransactionSig()
+	if err != nil {
+		return DnaRpc("error: " + err.Error())
+	}
+	if needsig == 0 {
+		txnHash := txn.Hash()
+		if errCode := VerifyAndSendTx(&txn); errCode != ErrNoError {
+			return DnaRpc(errCode.Error())
+		}
+		return DnaRpc(BytesToHexString(txnHash.ToArrayReverse()))
+	} else {
+		var buffer bytes.Buffer
+		txn.Serialize(&buffer)
+		return DnaRpc(BytesToHexString(buffer.Bytes()))
+	}
+}
+
+func createMultisigTransaction(params []interface{}) map[string]interface{} {
+	if len(params) < 4 {
+		return DnaRpcNil
+	}
+	var asset, from, address, value string
+	switch params[0].(type) {
+	case string:
+		asset = params[0].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	switch params[1].(type) {
+	case string:
+		from = params[1].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	switch params[2].(type) {
+	case string:
+		address = params[2].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	switch params[3].(type) {
+	case string:
+		value = params[3].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	if Wallet == nil {
+		return DnaRpc("error : wallet is not opened")
+	}
+
+	batchOut := sdk.BatchOut{
+		Address: address,
+		Value:   value,
+	}
+	tmp, err := HexStringToBytesReverse(asset)
+	if err != nil {
+		return DnaRpc("error: invalid asset ID")
+	}
+	var assetID Uint256
+	if err := assetID.Deserialize(bytes.NewReader(tmp)); err != nil {
+		return DnaRpc("error: invalid asset hash")
+	}
+	txn, err := sdk.MakeMultisigTransferTransaction(Wallet, assetID, from, batchOut)
+	if err != nil {
+		return DnaRpc("error: " + err.Error())
+	}
+
+	_, needsig, err := txn.ParseTransactionSig()
+	if err != nil {
+		return DnaRpc("error: " + err.Error())
+	}
+	if needsig == 0 {
+		txnHash := txn.Hash()
+		if errCode := VerifyAndSendTx(txn); errCode != ErrNoError {
+			return DnaRpc(errCode.Error())
+		}
+		return DnaRpc(BytesToHexString(txnHash.ToArrayReverse()))
+	} else {
+		var buffer bytes.Buffer
+		txn.Serialize(&buffer)
+		return DnaRpc(BytesToHexString(buffer.Bytes()))
+	}
 }
 
 func getBalance(params []interface{}) map[string]interface{} {
