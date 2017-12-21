@@ -49,6 +49,7 @@ const (
 	Api_GetUTXObyAsset      = "/api/v1/asset/utxo/:addr/:assetid"
 	Api_GetUTXObyAddr       = "/api/v1/asset/utxos/:addr"
 	Api_SendRawTx           = "/api/v1/transaction"
+	Api_SendChatMessage     = "/api/v1/chatmessage"
 	Api_SendRcdTxByTrans    = "/api/v1/custom/transaction/record"
 	Api_GetStateUpdate      = "/api/v1/stateupdate/:namespace/:key"
 	Api_OauthServerUrl      = "/api/v1/config/oauthserver/url"
@@ -172,6 +173,7 @@ func (rt *restServer) registryMethod() {
 	postMethodMap := map[string]Action{
 		Api_SendRawTx:         {name: "sendrawtransaction", handler: sendRawTransaction},
 		Api_SendRcdTxByTrans:  {name: "sendrecord", handler: SendRecord},
+		Api_SendChatMessage:   {name: "sendchatmessage", handler: SendChatMessage},
 		Api_OauthServerUrl:    {name: "setoauthserverurl", handler: SetOauthServerUrl},
 		Api_NoticeServerUrl:   {name: "setnoticeserverurl", handler: SetNoticeServerUrl},
 		Api_NoticeServerState: {name: "setpostblock", handler: SetPushBlockFlag},
