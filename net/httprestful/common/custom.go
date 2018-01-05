@@ -3,10 +3,12 @@ package common
 import (
 	"bytes"
 	"encoding/json"
-	"time"
 	"math/rand"
+	"time"
 
 	. "DNA/common"
+	"DNA/common/log"
+	"DNA/core/ledger"
 	tx "DNA/core/transaction"
 	. "DNA/errors"
 	. "DNA/net/httpjsonrpc"
@@ -16,8 +18,6 @@ import (
 
 const (
 	AttributeMaxLen = 252
-	MinUserNameLen  = 4
-	MaxUserNameLen  = 32
 	MinChatMsgLen   = 1
 	MaxChatMsgLen   = 1024
 )
@@ -183,7 +183,7 @@ func SendChatMessage(cmd map[string]interface{}) map[string]interface{} {
 		Address:  address,
 		UserName: userName,
 		Content:  []byte(content),
-		Nonce: rand.Uint64(),
+		Nonce:    rand.Uint64(),
 	}
 
 	if err := node.Xmit(m); err != nil {
@@ -191,6 +191,46 @@ func SendChatMessage(cmd map[string]interface{}) map[string]interface{} {
 		return resp
 	}
 	resp["Result"] = true
+
+	return resp
+}
+
+func SendUserList(cmd map[string]interface{}) map[string]interface{} {
+	resp := ResponsePack(Err.SUCCESS)
+	users, ok := cmd["Userlist"].([]interface{})
+	if !ok {
+		resp["Error"] = Err.INVALID_PARAMS
+		return resp
+	}
+	// remove duplicated username
+	userMap := make(map[string]struct{})
+	for _, name := range users {
+		if _, ok := userMap[name.(string)]; !ok {
+			userMap[name.(string)] = struct{}{}
+		}
+	}
+	type ReputationInfo struct {
+		Username   string
+		Reputation string
+	}
+	var ret []*ReputationInfo
+	for name := range userMap {
+		userinfo, err := ledger.DefaultLedger.Store.GetUserInfo(name)
+		if err != nil {
+			log.Warn("get user information error: ", name)
+			continue
+		}
+		if len(name) < MinChatMsgLen || len(name) > MaxChatMsgLen {
+			log.Warn("invaild user name length: ", name)
+			continue
+		}
+		repInfo := &ReputationInfo{
+			Username:   name,
+			Reputation: userinfo.Reputation.String(),
+		}
+		ret = append(ret, repInfo)
+	}
+	resp["Result"] = ret
 
 	return resp
 }

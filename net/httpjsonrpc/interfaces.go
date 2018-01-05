@@ -8,12 +8,14 @@ import (
 	"math/rand"
 	"os"
 	"path/filepath"
+	"strconv"
 	"time"
 
 	"DNA/account"
 	. "DNA/common"
 	"DNA/common/config"
 	"DNA/common/log"
+	"DNA/core/forum"
 	"DNA/core/ledger"
 	"DNA/core/signature"
 	tx "DNA/core/transaction"
@@ -65,7 +67,7 @@ func TransArryByteToHexString(ptx *tx.Transaction) *Transactions {
 		trans.Outputs[n].AssetID = BytesToHexString(v.AssetID.ToArrayReverse())
 		trans.Outputs[n].Value = v.Value.String()
 		address, _ := v.ProgramHash.ToAddress()
-		trans.Outputs[n].ProgramHash = address
+		trans.Outputs[n].Address = address
 		n++
 	}
 
@@ -85,7 +87,8 @@ func TransArryByteToHexString(ptx *tx.Transaction) *Transactions {
 		for m := 0; m < len(v); m++ {
 			trans.AssetOutputs[n].Txout[m].AssetID = BytesToHexString(v[m].AssetID.ToArrayReverse())
 			trans.AssetOutputs[n].Txout[m].Value = v[m].Value.String()
-			trans.AssetOutputs[n].Txout[m].ProgramHash = BytesToHexString(v[m].ProgramHash.ToArray())
+			address, _ := v[m].ProgramHash.ToAddress()
+			trans.AssetOutputs[n].Txout[m].Address = address
 		}
 		n += 1
 	}
@@ -273,11 +276,11 @@ func sendRawTransaction(params []interface{}) map[string]interface{} {
 		if err := txn.Deserialize(bytes.NewReader(hex)); err != nil {
 			return DnaRpcInvalidTransaction
 		}
-		if txn.TxType != tx.InvokeCode && txn.TxType != tx.DeployCode &&
-			txn.TxType != tx.TransferAsset && txn.TxType != tx.LockAsset &&
-			txn.TxType != tx.BookKeeper {
-			return DnaRpc("invalid transaction type")
-		}
+		//if txn.TxType != tx.InvokeCode && txn.TxType != tx.DeployCode &&
+		//	txn.TxType != tx.TransferAsset && txn.TxType != tx.LockAsset &&
+		//	txn.TxType != tx.BookKeeper {
+		//	return DnaRpc("invalid transaction type")
+		//}
 		hash = txn.Hash()
 		if errCode := VerifyAndSendTx(&txn); errCode != ErrNoError {
 			return DnaRpc(errCode.Error())
@@ -309,6 +312,9 @@ func submitBlock(params []interface{}) map[string]interface{} {
 		}
 		if err := ledger.DefaultLedger.Blockchain.AddBlock(&block); err != nil {
 			return DnaRpcInvalidBlock
+		}
+		if err := node.LocalNode().CleanSubmittedTransactions(&block); err != nil {
+			return DnaRpcInternalError
 		}
 		if err := node.Xmit(&block); err != nil {
 			return DnaRpcInternalError
@@ -1052,4 +1058,248 @@ func getBalance(params []interface{}) map[string]interface{} {
 	}
 
 	return DnaRpc(balances)
+}
+
+func registerUser(params []interface{}) map[string]interface{} {
+	if len(params) < 2 {
+		return DnaRpcNil
+	}
+	var userName, userProgramHash string
+	switch params[0].(type) {
+	case string:
+		userName = params[0].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	switch params[1].(type) {
+	case string:
+		userProgramHash = params[1].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	tmp, err := HexStringToBytesReverse(userProgramHash)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+	programHash, err := Uint160ParseFromBytes(tmp)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+	txn, err := sdk.MakeRegisterUserTransaction(userName, programHash)
+	if err != nil {
+		return DnaRpcInternalError
+	}
+
+	hash := txn.Hash()
+	if errCode := VerifyAndSendTx(txn); errCode != ErrNoError {
+		return DnaRpc(errCode.Error())
+	}
+
+	return DnaRpc(BytesToHexString(hash.ToArrayReverse()))
+}
+
+func postArticle(params []interface{}) map[string]interface{} {
+	if len(params) < 2 {
+		return DnaRpcNil
+	}
+	var articleHash, author string
+	switch params[0].(type) {
+	case string:
+		articleHash = params[0].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	switch params[1].(type) {
+	case string:
+		author = params[1].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+
+	tmpHash, err := HexStringToBytes(articleHash)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+	aHash, err := Uint256ParseFromBytes(tmpHash)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+	txn, err := sdk.MakePostArticleTransaction(Wallet, aHash, author)
+	if err != nil {
+		return DnaRpcInternalError
+	}
+
+	hash := txn.Hash()
+	if errCode := VerifyAndSendTx(txn); errCode != ErrNoError {
+		return DnaRpc(errCode.Error())
+	}
+
+	return DnaRpc(BytesToHexString(hash.ToArrayReverse()))
+}
+
+func replyArticle(params []interface{}) map[string]interface{} {
+	if len(params) < 3 {
+		return DnaRpcNil
+	}
+	var postTxnHash, contentHash, replier string
+	var err error
+	switch params[0].(type) {
+	case string:
+		postTxnHash = params[0].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	switch params[1].(type) {
+	case string:
+		contentHash = params[1].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	switch params[2].(type) {
+	case string:
+		replier = params[2].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+
+	tmpHash, err := HexStringToBytesReverse(postTxnHash)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+	pHash, err := Uint256ParseFromBytes(tmpHash)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+
+	tmpHash, err = HexStringToBytes(contentHash)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+	cHash, err := Uint256ParseFromBytes(tmpHash)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+
+	txn, err := sdk.MakeReplyArticleTransaction(Wallet, pHash, cHash, replier)
+	if err != nil {
+		return DnaRpcInternalError
+	}
+
+	hash := txn.Hash()
+	if errCode := VerifyAndSendTx(txn); errCode != ErrNoError {
+		return DnaRpc(errCode.Error())
+	}
+
+	return DnaRpc(BytesToHexString(hash.ToArrayReverse()))
+}
+
+func likeArticle(params []interface{}) map[string]interface{} {
+	if len(params) < 3 {
+		return DnaRpcNil
+	}
+	var postTxnHash, liker string
+	var likeType forum.LikeType
+	switch params[0].(type) {
+	case string:
+		postTxnHash = params[0].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	switch params[1].(type) {
+	case string:
+		liker = params[1].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	switch params[2].(type) {
+	case string:
+		v, err := strconv.ParseInt(params[2].(string), 10, 8)
+		if err != nil {
+			return DnaRpcInvalidParameter
+		}
+		likeType = forum.LikeType(v)
+	default:
+		return DnaRpcInvalidParameter
+	}
+
+	tmpHash, err := HexStringToBytesReverse(postTxnHash)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+	aHash, err := Uint256ParseFromBytes(tmpHash)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+	txn, err := sdk.MakeLikeArticleTransaction(Wallet, aHash, liker, likeType)
+	if err != nil {
+		return DnaRpcInternalError
+	}
+
+	hash := txn.Hash()
+	if errCode := VerifyAndSendTx(txn); errCode != ErrNoError {
+		return DnaRpc(errCode.Error())
+	}
+
+	return DnaRpc(BytesToHexString(hash.ToArrayReverse()))
+}
+
+func withdrawal(params []interface{}) map[string]interface{} {
+	if len(params) < 3 {
+		return DnaRpcNil
+	}
+	var payee, recipient, asset, amount string
+	switch params[0].(type) {
+	case string:
+		payee = params[0].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	switch params[1].(type) {
+	case string:
+		recipient = params[1].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	switch params[2].(type) {
+	case string:
+		asset = params[2].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+	switch params[3].(type) {
+	case string:
+		amount = params[3].(string)
+	default:
+		return DnaRpcInvalidParameter
+	}
+
+	tmpHash, err := HexStringToBytesReverse(recipient)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+	aHash, err := Uint160ParseFromBytes(tmpHash)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+
+	tmpHash, err = HexStringToBytesReverse(asset)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+	bHash, err := Uint256ParseFromBytes(tmpHash)
+	if err != nil {
+		return DnaRpcInvalidParameter
+	}
+
+	txn, err := sdk.MakeWithdrawalTransaction(Wallet, payee, aHash, bHash, amount)
+	if err != nil {
+		return DnaRpcInternalError
+	}
+
+	hash := txn.Hash()
+	if errCode := VerifyAndSendTx(txn); errCode != ErrNoError {
+		return DnaRpc(errCode.Error())
+	}
+
+	return DnaRpc(BytesToHexString(hash.ToArrayReverse()))
 }

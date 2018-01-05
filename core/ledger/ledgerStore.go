@@ -4,6 +4,7 @@ import (
 	. "DNA/common"
 	"DNA/core/account"
 	. "DNA/core/asset"
+	"DNA/core/forum"
 	tx "DNA/core/transaction"
 	"DNA/crypto"
 	"DNA/smartcontract/states"
@@ -32,6 +33,12 @@ type ILedgerStore interface {
 	GetStorage(key []byte) ([]byte, error)
 	GetAccount(programHash Uint160) (*account.AccountState, error)
 	GetAssetState(assetId Uint256) (*states.AssetState, error)
+
+	GetUserInfo(name string) (*forum.UserInfo, error)
+	GetLikeInfo(postHash Uint256) ([]*forum.LikeInfo, error)
+	GetUserArticleInfo(name string) ([]*forum.ArticleInfo, error)
+	GetTokenInfo(name string, tokenType forum.TokenType) (*forum.TokenInfo, error)
+	GetAvailableTokenInfo(name string) (*forum.TokenInfo, error)
 
 	GetCurrentBlockHash() Uint256
 	GetCurrentHeaderHash() Uint256
