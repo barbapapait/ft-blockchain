@@ -1,6 +1,8 @@
 package httpwebsocket
 
 import (
+	"bytes"
+
 	. "DNA/common"
 	. "DNA/common/config"
 	"DNA/core/ledger"
@@ -8,8 +10,8 @@ import (
 	"DNA/net/httprestful/common"
 	Err "DNA/net/httprestful/error"
 	"DNA/net/httpwebsocket/websocket"
+	"DNA/net/message"
 	. "DNA/net/protocol"
-	"bytes"
 )
 
 var ws *websocket.WsServer
@@ -22,11 +24,21 @@ var (
 func StartServer(n Noder) {
 	common.SetNode(n)
 	ledger.DefaultLedger.Blockchain.BCEvents.Subscribe(events.EventBlockPersistCompleted, SendBlock2WSclient)
+	ledger.DefaultLedger.Blockchain.BCEvents.Subscribe(events.EventChatMessage, SendChatMessage2WSclient)
 	go func() {
 		ws = websocket.InitWsServer(common.CheckAccessToken)
 		ws.Start()
 	}()
 }
+
+func SendChatMessage2WSclient(v interface{}) {
+	if Parameters.HttpWsPort != 0 {
+		go func() {
+			PushChatMessage(v)
+		}()
+	}
+}
+
 func SendBlock2WSclient(v interface{}) {
 	if Parameters.HttpWsPort != 0 && pushBlockFlag {
 		go func() {
@@ -132,6 +144,20 @@ func PushBlockTransactions(v interface{}) {
 			resp["Result"] = common.GetBlockTransactions(block)
 		}
 		resp["Action"] = "sendblocktransactions"
+		ws.PushResult(resp)
+	}
+}
+
+func PushChatMessage(v interface{}) {
+	if ws == nil {
+		return
+	}
+	resp := common.ResponsePack(Err.SUCCESS)
+	if chatMessage, ok := v.(*message.ChatPayload); ok {
+		resp["Action"] = "pushchatmessage"
+		resp["Address"] = chatMessage.Address
+		resp["Username"] = chatMessage.UserName
+		resp["Result"] = string(chatMessage.Content)
 		ws.PushResult(resp)
 	}
 }
