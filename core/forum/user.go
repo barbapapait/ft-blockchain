@@ -3,7 +3,7 @@ package forum
 import (
 	"io"
 
-	. "DNA/common"
+	. "ft-blockchain/common"
 )
 
 type UserInfo struct {

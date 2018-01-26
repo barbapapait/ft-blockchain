@@ -1,7 +1,7 @@
 package log
 
 import (
-	"DNA/common/config"
+	"ft-blockchain/common/config"
 	"bytes"
 	"errors"
 	"fmt"

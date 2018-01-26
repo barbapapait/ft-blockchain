@@ -1,10 +1,10 @@
 package states
 
 import (
-	"DNA/common"
+	"ft-blockchain/common"
 	"io"
 	"bytes"
-	"DNA/common/serialization"
+	"ft-blockchain/common/serialization"
 )
 
 type AccountState struct {

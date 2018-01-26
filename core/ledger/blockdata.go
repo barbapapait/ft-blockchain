@@ -1,11 +1,11 @@
 package ledger
 
 import (
-	. "DNA/common"
-	"DNA/common/serialization"
-	"DNA/core/contract/program"
-	sig "DNA/core/signature"
-	. "DNA/errors"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/serialization"
+	"ft-blockchain/core/contract/program"
+	sig "ft-blockchain/core/signature"
+	. "ft-blockchain/errors"
 	"crypto/sha256"
 	"errors"
 	"io"

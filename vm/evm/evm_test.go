@@ -4,12 +4,12 @@ import (
 	"testing"
 	"strings"
 	"fmt"
-	"DNA/common"
-	"DNA/vm/evm/abi"
-	"DNA/crypto"
-	"DNA/core/ledger"
-	"DNA/core/store/ChainStore"
-	"DNA/client"
+	"ft-blockchain/common"
+	"ft-blockchain/vm/evm/abi"
+	"ft-blockchain/crypto"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/core/store/ChainStore"
+	"ft-blockchain/client"
 )
 
 const (

@@ -5,16 +5,16 @@ import (
 	"fmt"
 	"math"
 
-	. "DNA/common"
-	"DNA/common/config"
-	"DNA/common/log"
-	"DNA/core/asset"
-	"DNA/core/forum"
-	"DNA/core/ledger"
-	tx "DNA/core/transaction"
-	"DNA/core/transaction/payload"
-	"DNA/crypto"
-	. "DNA/errors"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/config"
+	"ft-blockchain/common/log"
+	"ft-blockchain/core/asset"
+	"ft-blockchain/core/forum"
+	"ft-blockchain/core/ledger"
+	tx "ft-blockchain/core/transaction"
+	"ft-blockchain/core/transaction/payload"
+	"ft-blockchain/crypto"
+	. "ft-blockchain/errors"
 )
 
 func VerifyTransaction(txn *tx.Transaction) ErrCode {

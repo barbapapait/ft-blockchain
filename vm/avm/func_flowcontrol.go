@@ -1,8 +1,8 @@
 package avm
 
 import (
-	"DNA/common/log"
-	. "DNA/vm/avm/errors"
+	"ft-blockchain/common/log"
+	. "ft-blockchain/vm/avm/errors"
 )
 
 func opNop(e *ExecutionEngine) (VMState, error) {

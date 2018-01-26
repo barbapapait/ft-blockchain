@@ -1,11 +1,11 @@
 package avm
 
 import (
-	"DNA/crypto"
-	. "DNA/errors"
-	"DNA/common/log"
+	"ft-blockchain/crypto"
+	. "ft-blockchain/errors"
+	"ft-blockchain/common/log"
 	"errors"
-	"DNA/common"
+	"ft-blockchain/common"
 )
 
 

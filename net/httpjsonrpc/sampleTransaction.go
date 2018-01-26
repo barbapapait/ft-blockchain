@@ -1,18 +1,18 @@
 package httpjsonrpc
 
 import (
-	. "DNA/account"
-	. "DNA/common"
-	"DNA/common/log"
-	. "DNA/core/asset"
-	"DNA/core/contract"
-	"DNA/core/signature"
-	"DNA/core/transaction"
+	. "ft-blockchain/account"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/log"
+	. "ft-blockchain/core/asset"
+	"ft-blockchain/core/contract"
+	"ft-blockchain/core/signature"
+	"ft-blockchain/core/transaction"
 	"strconv"
 )
 
 const (
-	ASSETPREFIX = "DNA"
+	ASSETPREFIX = "TEST"
 )
 
 func NewRegTx(rand string, index int, admin, issuer *Account) *transaction.Transaction {

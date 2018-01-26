@@ -1,8 +1,8 @@
 package vm
 
 import (
-	"DNA/vm/interfaces"
-	"DNA/vm/utils"
+	"ft-blockchain/vm/interfaces"
+	"ft-blockchain/vm/utils"
 	"io"
 	_ "math/big"
 	_ "sort"

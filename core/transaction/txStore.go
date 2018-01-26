@@ -1,8 +1,8 @@
 package transaction
 
 import (
-	. "DNA/common"
-	"DNA/core/forum"
+	. "ft-blockchain/common"
+	"ft-blockchain/core/forum"
 )
 
 // ILedgerStore provides func with store package.

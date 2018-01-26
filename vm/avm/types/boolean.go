@@ -2,7 +2,7 @@ package types
 
 import (
 	"math/big"
-	"DNA/vm/avm/interfaces"
+	"ft-blockchain/vm/avm/interfaces"
 )
 
 type Boolean struct {

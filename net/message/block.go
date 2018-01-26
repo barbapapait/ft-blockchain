@@ -1,11 +1,11 @@
 package message
 
 import (
-	"DNA/common"
-	"DNA/common/log"
-	"DNA/core/ledger"
-	"DNA/events"
-	. "DNA/net/protocol"
+	"ft-blockchain/common"
+	"ft-blockchain/common/log"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/events"
+	. "ft-blockchain/net/protocol"
 	"bytes"
 	"crypto/sha256"
 	"encoding/binary"

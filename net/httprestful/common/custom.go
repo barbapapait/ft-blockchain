@@ -6,14 +6,14 @@ import (
 	"math/rand"
 	"time"
 
-	. "DNA/common"
-	"DNA/common/log"
-	"DNA/core/ledger"
-	tx "DNA/core/transaction"
-	. "DNA/errors"
-	. "DNA/net/httpjsonrpc"
-	Err "DNA/net/httprestful/error"
-	"DNA/net/message"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/log"
+	"ft-blockchain/core/ledger"
+	tx "ft-blockchain/core/transaction"
+	. "ft-blockchain/errors"
+	. "ft-blockchain/net/httpjsonrpc"
+	Err "ft-blockchain/net/httprestful/error"
+	"ft-blockchain/net/message"
 )
 
 const (

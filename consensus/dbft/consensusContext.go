@@ -1,15 +1,15 @@
 package dbft
 
 import (
-	cl "DNA/account"
-	. "DNA/common"
-	"DNA/common/log"
-	ser "DNA/common/serialization"
-	"DNA/core/ledger"
-	tx "DNA/core/transaction"
-	"DNA/crypto"
-	"DNA/net"
-	msg "DNA/net/message"
+	cl "ft-blockchain/account"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/log"
+	ser "ft-blockchain/common/serialization"
+	"ft-blockchain/core/ledger"
+	tx "ft-blockchain/core/transaction"
+	"ft-blockchain/crypto"
+	"ft-blockchain/net"
+	msg "ft-blockchain/net/message"
 	"fmt"
 	"sync"
 )

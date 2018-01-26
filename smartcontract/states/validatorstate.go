@@ -1,7 +1,7 @@
 package states
 
 import (
-	"DNA/crypto"
+	"ft-blockchain/crypto"
 	"io"
 	"bytes"
 )

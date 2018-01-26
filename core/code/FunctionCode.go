@@ -1,10 +1,10 @@
 package code
 
 import (
-	. "DNA/common"
-	"DNA/common/log"
-	"DNA/common/serialization"
-	. "DNA/core/contract"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/log"
+	"ft-blockchain/common/serialization"
+	. "ft-blockchain/core/contract"
 	"fmt"
 	"io"
 )

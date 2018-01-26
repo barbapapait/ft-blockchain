@@ -7,14 +7,14 @@ import (
 	"sort"
 	"strconv"
 
-	"DNA/account"
-	. "DNA/common"
-	"DNA/common/config"
-	. "DNA/core/asset"
-	"DNA/core/contract"
-	"DNA/core/forum"
-	"DNA/core/signature"
-	"DNA/core/transaction"
+	"ft-blockchain/account"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/config"
+	. "ft-blockchain/core/asset"
+	"ft-blockchain/core/contract"
+	"ft-blockchain/core/forum"
+	"ft-blockchain/core/signature"
+	"ft-blockchain/core/transaction"
 )
 
 type BatchOut struct {

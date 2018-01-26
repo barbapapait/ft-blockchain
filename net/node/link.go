@@ -1,11 +1,11 @@
 package node
 
 import (
-	. "DNA/common/config"
-	"DNA/common/log"
-	"DNA/events"
-	msg "DNA/net/message"
-	. "DNA/net/protocol"
+	. "ft-blockchain/common/config"
+	"ft-blockchain/common/log"
+	"ft-blockchain/events"
+	msg "ft-blockchain/net/message"
+	. "ft-blockchain/net/protocol"
 	"crypto/tls"
 	"crypto/x509"
 	"errors"

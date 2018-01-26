@@ -1,10 +1,10 @@
 package account
 
 import (
-	. "DNA/common"
-	"DNA/core/contract"
-	"DNA/crypto"
-	. "DNA/errors"
+	. "ft-blockchain/common"
+	"ft-blockchain/core/contract"
+	"ft-blockchain/crypto"
+	. "ft-blockchain/errors"
 	"errors"
 )
 

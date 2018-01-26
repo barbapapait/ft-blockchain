@@ -1,7 +1,7 @@
 package node
 
 import (
-	. "DNA/net/protocol"
+	. "ft-blockchain/net/protocol"
 	"fmt"
 	"sync"
 )

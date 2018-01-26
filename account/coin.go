@@ -3,8 +3,8 @@ package account
 import (
 	"io"
 
-	"DNA/common/serialization"
-	"DNA/core/transaction"
+	"ft-blockchain/common/serialization"
+	"ft-blockchain/core/transaction"
 )
 
 type AddressType byte

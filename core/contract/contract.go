@@ -1,13 +1,13 @@
 package contract
 
 import (
-	. "DNA/common"
-	"DNA/common/serialization"
-	. "DNA/errors"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/serialization"
+	. "ft-blockchain/errors"
 	"bytes"
 	"errors"
 	"io"
-	"DNA/vm/avm"
+	"ft-blockchain/vm/avm"
 )
 
 //Contract address is the hash of contract program .

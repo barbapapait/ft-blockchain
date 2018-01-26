@@ -1,14 +1,14 @@
 package test_case
 
 import (
-	"DNA/core/ledger"
-	"DNA/crypto"
-	"DNA/core/store/ChainStore"
-	client "DNA/account"
-	"DNA/vm/evm"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/crypto"
+	"ft-blockchain/core/store/ChainStore"
+	client "ft-blockchain/account"
+	"ft-blockchain/vm/evm"
 	"strings"
-	"DNA/vm/evm/abi"
-	"DNA/common"
+	"ft-blockchain/vm/evm/abi"
+	"ft-blockchain/common"
 	"time"
 	"math/big"
 )

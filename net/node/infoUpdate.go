@@ -1,11 +1,11 @@
 package node
 
 import (
-	"DNA/common/config"
-	"DNA/common/log"
-	"DNA/core/ledger"
-	. "DNA/net/message"
-	. "DNA/net/protocol"
+	"ft-blockchain/common/config"
+	"ft-blockchain/common/log"
+	"ft-blockchain/core/ledger"
+	. "ft-blockchain/net/message"
+	. "ft-blockchain/net/protocol"
 	"math/rand"
 	"net"
 	"strconv"

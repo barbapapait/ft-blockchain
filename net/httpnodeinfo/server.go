@@ -1,9 +1,9 @@
 package httpnodeinfo
 
 import (
-	"DNA/common/config"
-	"DNA/core/ledger"
-	. "DNA/net/protocol"
+	"ft-blockchain/common/config"
+	"ft-blockchain/core/ledger"
+	. "ft-blockchain/net/protocol"
 	"fmt"
 	"html/template"
 	"net/http"

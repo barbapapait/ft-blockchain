@@ -3,7 +3,7 @@ package avm
 import (
 	"bytes"
 	"encoding/binary"
-	"DNA/common"
+	"ft-blockchain/common"
 )
 
 type ParamsBuilder struct {

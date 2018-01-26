@@ -1,11 +1,11 @@
 package main
 
 import (
-	"DNA/crypto"
-	"DNA/core/ledger"
-	"DNA/core/store"
-	."DNA/common"
-	"DNA/common/log"
+	"ft-blockchain/crypto"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/core/store"
+	."ft-blockchain/common"
+	"ft-blockchain/common/log"
 	"encoding/hex"
 	"os"
 	"fmt"

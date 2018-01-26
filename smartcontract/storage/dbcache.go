@@ -1,9 +1,9 @@
 package storage
 
 import (
-	"DNA/core/store"
-	"DNA/smartcontract/states"
-	"DNA/common"
+	"ft-blockchain/core/store"
+	"ft-blockchain/smartcontract/states"
+	"ft-blockchain/common"
 	"math/big"
 )
 

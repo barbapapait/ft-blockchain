@@ -11,12 +11,12 @@ import (
 	"syscall"
 	"time"
 
-	"DNA/account"
-	. "DNA/cli/common"
-	. "DNA/common"
-	"DNA/common/password"
-	"DNA/crypto"
-	"DNA/events/signalset"
+	"ft-blockchain/account"
+	. "ft-blockchain/cli/common"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/password"
+	"ft-blockchain/crypto"
+	"ft-blockchain/events/signalset"
 
 	"github.com/urfave/cli"
 )

@@ -1,10 +1,10 @@
 package payload
 
 import (
-	"DNA/common"
-	"DNA/core/asset"
-	"DNA/crypto"
-	. "DNA/errors"
+	"ft-blockchain/common"
+	"ft-blockchain/core/asset"
+	"ft-blockchain/crypto"
+	. "ft-blockchain/errors"
 	"io"
 )
 

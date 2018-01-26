@@ -1,14 +1,14 @@
 package validation
 
 import (
-	. "DNA/common"
-	sig "DNA/core/signature"
-	"DNA/crypto"
-	. "DNA/errors"
-	"DNA/vm/avm"
+	. "ft-blockchain/common"
+	sig "ft-blockchain/core/signature"
+	"ft-blockchain/crypto"
+	. "ft-blockchain/errors"
+	"ft-blockchain/vm/avm"
 	"errors"
-	"DNA/vm/avm/interfaces"
-	"DNA/common"
+	"ft-blockchain/vm/avm/interfaces"
+	"ft-blockchain/common"
 )
 
 func VerifySignableData(signableData sig.SignableData) (bool, error) {

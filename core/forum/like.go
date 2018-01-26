@@ -3,7 +3,7 @@ package forum
 import (
 	"io"
 
-	"DNA/common/serialization"
+	"ft-blockchain/common/serialization"
 )
 
 type LikeType byte

@@ -5,9 +5,9 @@ import (
 	"os"
 	"time"
 
-	"DNA/account"
-	. "DNA/cli/common"
-	"DNA/common/password"
+	"ft-blockchain/account"
+	. "ft-blockchain/cli/common"
+	"ft-blockchain/common/password"
 	"github.com/urfave/cli"
 )
 

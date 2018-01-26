@@ -1,13 +1,13 @@
 package states
 
 import (
-	"DNA/common"
-	"DNA/crypto"
+	"ft-blockchain/common"
+	"ft-blockchain/crypto"
 	"io"
-	"DNA/common/serialization"
-	. "DNA/errors"
+	"ft-blockchain/common/serialization"
+	. "ft-blockchain/errors"
 	"bytes"
-	"DNA/core/asset"
+	"ft-blockchain/core/asset"
 )
 
 type AssetState struct {

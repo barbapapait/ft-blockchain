@@ -1,10 +1,10 @@
 package program
 
 import (
-	. "DNA/common"
+	. "ft-blockchain/common"
 	"bytes"
 	"math/big"
-	"DNA/vm/avm"
+	"ft-blockchain/vm/avm"
 )
 
 type ProgramBuilder struct {

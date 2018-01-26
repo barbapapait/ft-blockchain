@@ -1,9 +1,9 @@
 package common
 
 import (
-	. "DNA/common/config"
-	"DNA/common/log"
-	Err "DNA/net/httprestful/error"
+	. "ft-blockchain/common/config"
+	"ft-blockchain/common/log"
+	Err "ft-blockchain/net/httprestful/error"
 	"bytes"
 	"encoding/json"
 	"io/ioutil"

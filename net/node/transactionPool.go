@@ -1,14 +1,14 @@
 package node
 
 import (
-	"DNA/common"
-	"DNA/common/config"
-	"DNA/common/log"
-	"DNA/core/ledger"
-	"DNA/core/transaction"
-	"DNA/core/transaction/payload"
-	va "DNA/core/validation"
-	. "DNA/errors"
+	"ft-blockchain/common"
+	"ft-blockchain/common/config"
+	"ft-blockchain/common/log"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/core/transaction"
+	"ft-blockchain/core/transaction/payload"
+	va "ft-blockchain/core/validation"
+	. "ft-blockchain/errors"
 	"errors"
 	"fmt"
 	"sync"

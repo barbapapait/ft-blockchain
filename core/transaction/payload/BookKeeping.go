@@ -1,7 +1,7 @@
 package payload
 
 import (
-	"DNA/common/serialization"
+	"ft-blockchain/common/serialization"
 	"io"
 )
 

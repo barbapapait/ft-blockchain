@@ -1,7 +1,7 @@
 package consensus
 
 import (
-	. "DNA/common"
+	. "ft-blockchain/common"
 )
 type Policy struct {
 	PolicyLevel PolicyLevel

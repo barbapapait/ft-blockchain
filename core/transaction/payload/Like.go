@@ -3,9 +3,9 @@ package payload
 import (
 	"io"
 
-	. "DNA/common"
-	"DNA/common/serialization"
-	"DNA/core/forum"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/serialization"
+	"ft-blockchain/core/forum"
 )
 
 type LikeArticle struct {

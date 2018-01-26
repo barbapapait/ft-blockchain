@@ -1,14 +1,14 @@
 package privpayload
 
 import (
-	"DNA/account"
-	. "DNA/cli/common"
-	"DNA/core/contract"
-	"DNA/core/signature"
-	"DNA/core/transaction"
-	"DNA/core/transaction/payload"
-	"DNA/crypto"
-	"DNA/net/httpjsonrpc"
+	"ft-blockchain/account"
+	. "ft-blockchain/cli/common"
+	"ft-blockchain/core/contract"
+	"ft-blockchain/core/signature"
+	"ft-blockchain/core/transaction"
+	"ft-blockchain/core/transaction/payload"
+	"ft-blockchain/crypto"
+	"ft-blockchain/net/httpjsonrpc"
 	"bytes"
 	"encoding/hex"
 	"encoding/json"

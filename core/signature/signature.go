@@ -1,12 +1,12 @@
 package signature
 
 import (
-	"DNA/common"
-	"DNA/common/log"
-	"DNA/core/contract/program"
-	"DNA/crypto"
-	. "DNA/errors"
-	"DNA/vm/avm/interfaces"
+	"ft-blockchain/common"
+	"ft-blockchain/common/log"
+	"ft-blockchain/core/contract/program"
+	"ft-blockchain/crypto"
+	. "ft-blockchain/errors"
+	"ft-blockchain/vm/avm/interfaces"
 	"bytes"
 	"crypto/sha256"
 	"io"

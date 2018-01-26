@@ -1,7 +1,7 @@
 package evm
 
 import (
-	"DNA/common"
+	"ft-blockchain/common"
 	"math/big"
 )
 

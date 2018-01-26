@@ -1,7 +1,7 @@
 package httpjsonrpc
 
 import (
-	"DNA/common/log"
+	"ft-blockchain/common/log"
 	"fmt"
 	"os"
 	"os/exec"

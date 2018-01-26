@@ -1,8 +1,8 @@
 package node
 
 import (
-	"DNA/common"
-	"DNA/net/protocol"
+	"ft-blockchain/common"
+	"ft-blockchain/net/protocol"
 	"sync"
 )
 

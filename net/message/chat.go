@@ -6,12 +6,12 @@ import (
 	"encoding/binary"
 	"io"
 
-	"DNA/common/serialization"
-	"DNA/core/ledger"
-	"DNA/events"
-	. "DNA/net/protocol"
-	."DNA/common"
-	"DNA/common/log"
+	"ft-blockchain/common/serialization"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/events"
+	. "ft-blockchain/net/protocol"
+	."ft-blockchain/common"
+	"ft-blockchain/common/log"
 )
 
 type ChatPayload struct {

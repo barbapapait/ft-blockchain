@@ -1,9 +1,9 @@
 package avm
 
 import (
-	"DNA/vm/avm/utils"
+	"ft-blockchain/vm/avm/utils"
 	"io"
-	"DNA/vm/avm/types"
+	"ft-blockchain/vm/avm/types"
 )
 
 type ExecutionContext struct {

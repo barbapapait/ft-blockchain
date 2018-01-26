@@ -1,16 +1,16 @@
 package smartcontract
 
 import (
-	"DNA/account"
-	. "DNA/cli/common"
-	"DNA/common"
-	"DNA/common/password"
-	"DNA/core/code"
-	"DNA/core/contract"
-	"DNA/core/signature"
-	"DNA/core/transaction"
-	"DNA/net/httpjsonrpc"
-	"DNA/smartcontract/types"
+	"ft-blockchain/account"
+	. "ft-blockchain/cli/common"
+	"ft-blockchain/common"
+	"ft-blockchain/common/password"
+	"ft-blockchain/core/code"
+	"ft-blockchain/core/contract"
+	"ft-blockchain/core/signature"
+	"ft-blockchain/core/transaction"
+	"ft-blockchain/net/httpjsonrpc"
+	"ft-blockchain/smartcontract/types"
 	"bytes"
 	"encoding/hex"
 	"fmt"
@@ -76,7 +76,7 @@ func makeDeployContractTransaction(signer *account.Account, codeStr string, lang
 	}
 	fc.CodeHash()
 
-	tx, err := transaction.NewDeployTransaction(fc, signer.ProgramHash, "DNA", "1.0", "DNA user", "user@onchain.com", "test uint", types.LangType(byte(language)))
+	tx, err := transaction.NewDeployTransaction(fc, signer.ProgramHash, "TEST", "1.0", "test user", "user@example.com", "test uint", types.LangType(byte(language)))
 	if err != nil {
 		return "Deploy smartcontract fail!", err
 	}

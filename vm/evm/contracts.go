@@ -1,10 +1,10 @@
 package evm
 
 import (
-	"DNA/common"
+	"ft-blockchain/common"
 	"math/big"
-	. "DNA/vm/evm/common"
-	"DNA/vm/evm/crypto"
+	. "ft-blockchain/vm/evm/common"
+	"ft-blockchain/vm/evm/crypto"
 	"crypto/sha256"
 	"github.com/golang/crypto/ripemd160"
 )

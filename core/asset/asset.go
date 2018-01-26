@@ -1,11 +1,11 @@
 package asset
 
 import (
-	"DNA/common/serialization"
-	. "DNA/errors"
+	"ft-blockchain/common/serialization"
+	. "ft-blockchain/errors"
+	"bytes"
 	"errors"
 	"io"
-	"bytes"
 )
 
 //AssetType
@@ -25,14 +25,11 @@ const (
 
 type AssetRecordType byte
 
-//onchain DNA is planed to support UTXO and Balance
 const (
 	UTXO    AssetRecordType = 0x00
 	Balance AssetRecordType = 0x01
 )
 
-//define the asset stucture in onchain DNA
-//registered asset will be assigned to contract address
 type Asset struct {
 	Name        string
 	Description string
@@ -100,8 +97,7 @@ func (a *Asset) Deserialize(r io.Reader) error {
 	return nil
 }
 
-
-func (a *Asset) ToArray() ([]byte) {
+func (a *Asset) ToArray() []byte {
 	b := new(bytes.Buffer)
 	a.Serialize(b)
 	return b.Bytes()

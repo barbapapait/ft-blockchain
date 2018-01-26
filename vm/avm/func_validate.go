@@ -1,10 +1,10 @@
 package avm
 
 import (
-	. "DNA/vm/avm/errors"
+	. "ft-blockchain/vm/avm/errors"
 	"bytes"
 	"encoding/binary"
-	"DNA/vm/avm/types"
+	"ft-blockchain/vm/avm/types"
 )
 
 func validatorPushData4(e *ExecutionEngine) error {

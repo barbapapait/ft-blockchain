@@ -1,7 +1,7 @@
 package avm
 
 import (
-	"DNA/vm/avm/types"
+	"ft-blockchain/vm/avm/types"
 )
 
 type Element interface {

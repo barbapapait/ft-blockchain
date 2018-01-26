@@ -2,8 +2,8 @@ package types
 
 import (
 	"math/big"
-	"DNA/vm/avm/interfaces"
-	"DNA/common"
+	"ft-blockchain/vm/avm/interfaces"
+	"ft-blockchain/common"
 )
 
 type Integer struct {

@@ -6,7 +6,7 @@ import (
 	"errors"
 	"io"
 
-	. "DNA/errors"
+	. "ft-blockchain/errors"
 )
 
 const UINT256SIZE int = 32

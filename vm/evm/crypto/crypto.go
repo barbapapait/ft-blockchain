@@ -3,7 +3,7 @@ package crypto
 import (
 	"github.com/ethereum/go-ethereum/crypto/sha3"
 	"math/big"
-	"DNA/vm/evm/common"
+	"ft-blockchain/vm/evm/common"
 	"github.com/ethereum/go-ethereum/crypto/secp256k1"
 )
 

@@ -1,7 +1,7 @@
 package account
 
 import (
-	"DNA/crypto"
+	"ft-blockchain/crypto"
 	"fmt"
 	"os"
 	"path"

@@ -1,7 +1,7 @@
 package service
 
 import (
-	"DNA/common"
+	"ft-blockchain/common"
 )
 
 type StorageContext struct {

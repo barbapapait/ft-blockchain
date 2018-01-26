@@ -1,13 +1,13 @@
 package service
 
 import (
-	. "DNA/common"
-	"DNA/core/asset"
-	"DNA/core/ledger"
-	"DNA/core/transaction"
-	. "DNA/net/httpjsonrpc"
-	"DNA/net/httprestful/common"
-	"DNA/smartcontract/states"
+	. "ft-blockchain/common"
+	"ft-blockchain/core/asset"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/core/transaction"
+	. "ft-blockchain/net/httpjsonrpc"
+	"ft-blockchain/net/httprestful/common"
+	"ft-blockchain/smartcontract/states"
 )
 
 type AccountInfo struct {

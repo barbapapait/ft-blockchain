@@ -1,16 +1,16 @@
 package service
 
 import (
-	"DNA/common"
-	"DNA/core/contract"
-	"DNA/core/ledger"
-	"DNA/core/signature"
-	"DNA/core/transaction"
-	"DNA/crypto"
-	"DNA/errors"
-	"DNA/smartcontract/states"
-	"DNA/vm/avm"
-	"DNA/vm/avm/types"
+	"ft-blockchain/common"
+	"ft-blockchain/core/contract"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/core/signature"
+	"ft-blockchain/core/transaction"
+	"ft-blockchain/crypto"
+	"ft-blockchain/errors"
+	"ft-blockchain/smartcontract/states"
+	"ft-blockchain/vm/avm"
+	"ft-blockchain/vm/avm/types"
 	"fmt"
 	"math/big"
 )

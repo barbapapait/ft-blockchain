@@ -2,8 +2,8 @@ package deal
 
 import (
 	"testing"
-	"DNA/vm/evm/test_case"
-	"DNA/common"
+	"ft-blockchain/vm/evm/test_case"
+	"ft-blockchain/common"
 	"fmt"
 )
 

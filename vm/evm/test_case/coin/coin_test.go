@@ -2,8 +2,8 @@ package coin
 
 import (
 	"testing"
-	"DNA/vm/evm/test_case"
-	"DNA/client"
+	"ft-blockchain/vm/evm/test_case"
+	"ft-blockchain/client"
 	"fmt"
 	"math/big"
 )

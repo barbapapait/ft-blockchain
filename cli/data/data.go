@@ -1,12 +1,12 @@
 package data
 
 import (
-	"DNA/account"
-	. "DNA/cli/common"
-	"DNA/core/contract"
-	"DNA/core/signature"
-	"DNA/core/transaction"
-	"DNA/net/httpjsonrpc"
+	"ft-blockchain/account"
+	. "ft-blockchain/cli/common"
+	"ft-blockchain/core/contract"
+	"ft-blockchain/core/signature"
+	"ft-blockchain/core/transaction"
+	"ft-blockchain/net/httpjsonrpc"
 	"bytes"
 	"encoding/hex"
 	"fmt"
@@ -19,7 +19,7 @@ func openWallet(name string, passwd []byte) account.Client {
 	if name == account.WalletFileName {
 		fmt.Println("Using default wallet: ", account.WalletFileName)
 	}
-	wallet,err := account.Open(name, passwd)
+	wallet, err := account.Open(name, passwd)
 	if err != nil {
 		fmt.Println("Failed to open wallet: ", name)
 		os.Exit(1)
@@ -140,7 +140,7 @@ func dataAction(c *cli.Context) error {
 		if name == "" {
 			rbuf := make([]byte, 4)
 			rand.Read(rbuf)
-			name = "DNA-" + hex.EncodeToString(rbuf)
+			name = "TEST-" + hex.EncodeToString(rbuf)
 		}
 		//create transaction
 		var tx *transaction.Transaction

@@ -1,14 +1,14 @@
 package transaction
 
 import (
-	. "DNA/common"
-	"DNA/common/log"
-	"DNA/common/serialization"
-	"DNA/core/contract"
-	"DNA/core/contract/program"
-	sig "DNA/core/signature"
-	"DNA/core/transaction/payload"
-	. "DNA/errors"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/log"
+	"ft-blockchain/common/serialization"
+	"ft-blockchain/core/contract"
+	"ft-blockchain/core/contract/program"
+	sig "ft-blockchain/core/signature"
+	"ft-blockchain/core/transaction/payload"
+	. "ft-blockchain/errors"
 	"bytes"
 	"crypto/sha256"
 	"errors"

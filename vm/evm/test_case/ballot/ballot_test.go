@@ -2,10 +2,10 @@ package ballot
 
 import (
 	"testing"
-	"DNA/vm/evm/test_case"
+	"ft-blockchain/vm/evm/test_case"
 	"fmt"
 	"math/big"
-	"DNA/client"
+	"ft-blockchain/client"
 )
 
 const (

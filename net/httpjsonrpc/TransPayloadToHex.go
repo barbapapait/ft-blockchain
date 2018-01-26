@@ -1,10 +1,10 @@
 package httpjsonrpc
 
 import (
-	. "DNA/common"
-	"DNA/core/asset"
-	. "DNA/core/transaction"
-	"DNA/core/transaction/payload"
+	. "ft-blockchain/common"
+	"ft-blockchain/core/asset"
+	. "ft-blockchain/core/transaction"
+	"ft-blockchain/core/transaction/payload"
 	"bytes"
 )
 

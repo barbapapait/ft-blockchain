@@ -1,14 +1,14 @@
 package net
 
 import (
-	. "DNA/common"
-	"DNA/core/ledger"
-	"DNA/core/transaction"
-	"DNA/crypto"
-	. "DNA/errors"
-	"DNA/events"
-	"DNA/net/node"
-	"DNA/net/protocol"
+	. "ft-blockchain/common"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/core/transaction"
+	"ft-blockchain/crypto"
+	. "ft-blockchain/errors"
+	"ft-blockchain/events"
+	"ft-blockchain/net/node"
+	"ft-blockchain/net/protocol"
 )
 
 type Neter interface {

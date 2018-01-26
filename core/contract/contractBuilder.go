@@ -1,13 +1,13 @@
 package contract
 
 import (
-	. "DNA/common"
-	pg "DNA/core/contract/program"
-	"DNA/crypto"
-	. "DNA/errors"
+	. "ft-blockchain/common"
+	pg "ft-blockchain/core/contract/program"
+	"ft-blockchain/crypto"
+	. "ft-blockchain/errors"
 	"math/big"
 	"sort"
-	"DNA/vm/avm"
+	"ft-blockchain/vm/avm"
 )
 
 //create a Single Singature contract for owner

@@ -1,12 +1,12 @@
 package message
 
 import (
-	"DNA/common"
-	"DNA/common/log"
-	"DNA/core/ledger"
-	"DNA/core/transaction"
-	. "DNA/errors"
-	. "DNA/net/protocol"
+	"ft-blockchain/common"
+	"ft-blockchain/common/log"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/core/transaction"
+	. "ft-blockchain/errors"
+	. "ft-blockchain/net/protocol"
 	"bytes"
 	"crypto/sha256"
 	"encoding/binary"

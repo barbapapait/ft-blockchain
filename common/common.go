@@ -1,8 +1,8 @@
 package common
 
 import (
-	"DNA/common/log"
-	. "DNA/errors"
+	"ft-blockchain/common/log"
+	. "ft-blockchain/errors"
 	"bytes"
 	"crypto/sha256"
 	"encoding/binary"

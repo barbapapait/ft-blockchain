@@ -1,8 +1,8 @@
 package message
 
 import (
-	"DNA/common/log"
-	. "DNA/net/protocol"
+	"ft-blockchain/common/log"
+	. "ft-blockchain/net/protocol"
 	"encoding/hex"
 	"errors"
 	"strconv"

@@ -6,12 +6,12 @@ import (
 	"math/rand"
 	"os"
 
-	"DNA/account"
-	. "DNA/cli/common"
-	. "DNA/common"
-	"DNA/core/transaction"
-	"DNA/net/httpjsonrpc"
-	"DNA/sdk"
+	"ft-blockchain/account"
+	. "ft-blockchain/cli/common"
+	. "ft-blockchain/common"
+	"ft-blockchain/core/transaction"
+	"ft-blockchain/net/httpjsonrpc"
+	"ft-blockchain/sdk"
 
 	"github.com/urfave/cli"
 )
@@ -36,7 +36,7 @@ func parseAssetName(c *cli.Context) string {
 	if name == "" {
 		rbuf := make([]byte, RANDBYTELEN)
 		rand.Read(rbuf)
-		name = "DNA-" + BytesToHexString(rbuf)
+		name = "TEST-" + BytesToHexString(rbuf)
 	}
 
 	return name

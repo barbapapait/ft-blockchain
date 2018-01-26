@@ -7,8 +7,8 @@ import (
 	"os"
 	"strconv"
 
-	"DNA/common/config"
-	"DNA/common/password"
+	"ft-blockchain/common/config"
+	"ft-blockchain/common/password"
 
 	"github.com/urfave/cli"
 )

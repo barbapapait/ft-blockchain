@@ -1,12 +1,12 @@
 package ledger
 
 import (
-	. "DNA/common"
-	"DNA/common/log"
-	tx "DNA/core/transaction"
-	"DNA/crypto"
-	. "DNA/errors"
-	"DNA/events"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/log"
+	tx "ft-blockchain/core/transaction"
+	"ft-blockchain/crypto"
+	. "ft-blockchain/errors"
+	"ft-blockchain/events"
 	"sync"
 )
 

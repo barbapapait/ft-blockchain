@@ -1,12 +1,12 @@
 package ChainStore
 
 import (
-	"DNA/smartcontract/storage"
+	"ft-blockchain/smartcontract/storage"
 	"bytes"
-	"DNA/smartcontract/states"
-	"DNA/core/store"
+	"ft-blockchain/smartcontract/states"
+	"ft-blockchain/core/store"
 	"math/big"
-	"DNA/common"
+	"ft-blockchain/common"
 )
 
 type DBCache struct {

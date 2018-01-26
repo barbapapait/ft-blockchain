@@ -1,10 +1,10 @@
 package states
 
 import (
-	"DNA/common"
+	"ft-blockchain/common"
 	"io"
-	"DNA/common/serialization"
-	. "DNA/errors"
+	"ft-blockchain/common/serialization"
+	. "ft-blockchain/errors"
 )
 
 type StorageKey struct {

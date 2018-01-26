@@ -1,9 +1,9 @@
 package storage
 
 import (
-	"DNA/smartcontract/states"
+	"ft-blockchain/smartcontract/states"
 	"bytes"
-	"DNA/core/store"
+	"ft-blockchain/core/store"
 )
 
 type RWSet struct {

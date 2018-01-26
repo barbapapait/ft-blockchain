@@ -1,12 +1,12 @@
 package httprestful
 
 import (
-	. "DNA/common/config"
-	"DNA/core/ledger"
-	"DNA/events"
-	"DNA/net/httprestful/common"
-	. "DNA/net/httprestful/restful"
-	. "DNA/net/protocol"
+	. "ft-blockchain/common/config"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/events"
+	"ft-blockchain/net/httprestful/common"
+	. "ft-blockchain/net/httprestful/restful"
+	. "ft-blockchain/net/protocol"
 	"strconv"
 )
 

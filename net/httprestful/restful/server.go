@@ -1,11 +1,11 @@
 package restful
 
 import (
-	. "DNA/common/config"
-	"DNA/common/log"
-	. "DNA/net/httprestful/common"
-	Err "DNA/net/httprestful/error"
-	"DNA/net/httpwebsocket"
+	. "ft-blockchain/common/config"
+	"ft-blockchain/common/log"
+	. "ft-blockchain/net/httprestful/common"
+	Err "ft-blockchain/net/httprestful/error"
+	"ft-blockchain/net/httpwebsocket"
 	"context"
 	"crypto/tls"
 	"encoding/json"

@@ -1,9 +1,9 @@
 package validation
 
 import (
-	"DNA/core/ledger"
-	tx "DNA/core/transaction"
-	. "DNA/errors"
+	"ft-blockchain/core/ledger"
+	tx "ft-blockchain/core/transaction"
+	. "ft-blockchain/errors"
 	"errors"
 	"fmt"
 )

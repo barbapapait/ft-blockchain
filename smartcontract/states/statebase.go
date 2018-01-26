@@ -2,8 +2,8 @@ package states
 
 import (
 	"io"
-	"DNA/common/serialization"
-	"DNA/errors"
+	"ft-blockchain/common/serialization"
+	"ft-blockchain/errors"
 )
 
 type StateBase struct {

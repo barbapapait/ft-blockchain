@@ -2,12 +2,12 @@ package states
 
 import (
 	"io"
-	. "DNA/errors"
-	"DNA/core/code"
+	. "ft-blockchain/errors"
+	"ft-blockchain/core/code"
 	"bytes"
-	"DNA/common/serialization"
-	"DNA/smartcontract/types"
-	"DNA/common"
+	"ft-blockchain/common/serialization"
+	"ft-blockchain/smartcontract/types"
+	"ft-blockchain/common"
 )
 
 type ContractState struct {

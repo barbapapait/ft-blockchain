@@ -10,11 +10,11 @@ import (
 	"os"
 	"sync"
 
-	. "DNA/common"
-	"DNA/common/serialization"
-	ct "DNA/core/contract"
-	"DNA/core/transaction"
-	. "DNA/errors"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/serialization"
+	ct "ft-blockchain/core/contract"
+	"ft-blockchain/core/transaction"
+	. "ft-blockchain/errors"
 )
 
 const (

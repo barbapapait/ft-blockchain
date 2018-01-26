@@ -1,8 +1,8 @@
 package httpjsonrpc
 
 import (
-	. "DNA/common/config"
-	"DNA/common/log"
+	. "ft-blockchain/common/config"
+	"ft-blockchain/common/log"
 	"net/http"
 	"strconv"
 )

@@ -3,7 +3,7 @@ package payload
 import (
 	"io"
 
-	"DNA/common/serialization"
+	"ft-blockchain/common/serialization"
 )
 
 const (

@@ -1,13 +1,13 @@
 package ledger
 
 import (
-	. "DNA/common"
-	"DNA/core/account"
-	. "DNA/core/asset"
-	"DNA/core/forum"
-	tx "DNA/core/transaction"
-	"DNA/crypto"
-	"DNA/smartcontract/states"
+	. "ft-blockchain/common"
+	"ft-blockchain/core/account"
+	. "ft-blockchain/core/asset"
+	"ft-blockchain/core/forum"
+	tx "ft-blockchain/core/transaction"
+	"ft-blockchain/crypto"
+	"ft-blockchain/smartcontract/states"
 )
 
 // ILedgerStore provides func with store package.

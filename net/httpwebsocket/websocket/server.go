@@ -1,11 +1,11 @@
 package websocket
 
 import (
-	. "DNA/common/config"
-	"DNA/common/log"
-	. "DNA/net/httprestful/common"
-	Err "DNA/net/httprestful/error"
-	. "DNA/net/httpwebsocket/session"
+	. "ft-blockchain/common/config"
+	"ft-blockchain/common/log"
+	. "ft-blockchain/net/httprestful/common"
+	Err "ft-blockchain/net/httprestful/error"
+	. "ft-blockchain/net/httpwebsocket/session"
 	"context"
 	"crypto/tls"
 	"encoding/json"

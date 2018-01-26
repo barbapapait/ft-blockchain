@@ -3,8 +3,8 @@ package abi
 import (
 	"reflect"
 	"math/big"
-	"DNA/vm/evm/common"
-	. "DNA/common"
+	"ft-blockchain/vm/evm/common"
+	. "ft-blockchain/common"
 )
 
 var (

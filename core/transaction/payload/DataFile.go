@@ -1,9 +1,9 @@
 package payload
 
 import (
-	"DNA/common/serialization"
-	"DNA/crypto"
-	. "DNA/errors"
+	"ft-blockchain/common/serialization"
+	"ft-blockchain/crypto"
+	. "ft-blockchain/errors"
 	"io"
 )
 

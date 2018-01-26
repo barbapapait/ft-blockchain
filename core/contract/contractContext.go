@@ -1,12 +1,12 @@
 package contract
 
 import (
-	. "DNA/common"
-	"DNA/common/log"
-	pg "DNA/core/contract/program"
-	sig "DNA/core/signature"
-	"DNA/crypto"
-	_ "DNA/errors"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/log"
+	pg "ft-blockchain/core/contract/program"
+	sig "ft-blockchain/core/signature"
+	"ft-blockchain/crypto"
+	_ "ft-blockchain/errors"
 	"errors"
 	"math/big"
 	"sort"

@@ -5,15 +5,15 @@ import (
 	"fmt"
 	"strconv"
 
-	. "DNA/common"
-	"DNA/core/forum"
-	"DNA/core/ledger"
-	tx "DNA/core/transaction"
-	. "DNA/errors"
-	. "DNA/net/httpjsonrpc"
-	Err "DNA/net/httprestful/error"
-	. "DNA/net/protocol"
-	"DNA/smartcontract/states"
+	. "ft-blockchain/common"
+	"ft-blockchain/core/forum"
+	"ft-blockchain/core/ledger"
+	tx "ft-blockchain/core/transaction"
+	. "ft-blockchain/errors"
+	. "ft-blockchain/net/httpjsonrpc"
+	Err "ft-blockchain/net/httprestful/error"
+	. "ft-blockchain/net/protocol"
+	"ft-blockchain/smartcontract/states"
 )
 
 var node Noder

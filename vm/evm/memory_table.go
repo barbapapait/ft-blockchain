@@ -2,7 +2,7 @@ package evm
 
 import (
 	"math/big"
-	"DNA/vm/evm/common"
+	"ft-blockchain/vm/evm/common"
 )
 
 func memoryMStore(stack *Stack) *big.Int {

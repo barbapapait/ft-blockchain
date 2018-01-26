@@ -1,12 +1,12 @@
 package avm
 
 import (
-	"DNA/vm/avm/interfaces"
+	"ft-blockchain/vm/avm/interfaces"
 	"io"
 	_ "math/big"
 	_ "sort"
-	. "DNA/vm/avm/errors"
-	"DNA/common"
+	. "ft-blockchain/vm/avm/errors"
+	"ft-blockchain/common"
 )
 
 const (

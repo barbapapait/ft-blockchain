@@ -3,8 +3,8 @@ package asset
 import (
 	"io"
 
-	. "DNA/common"
-	"DNA/common/serialization"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/serialization"
 )
 
 type LockAsset struct {

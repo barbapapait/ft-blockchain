@@ -1,8 +1,8 @@
 package account
 
 import (
-	. "DNA/common"
-	ct "DNA/core/contract"
+	. "ft-blockchain/common"
+	ct "ft-blockchain/core/contract"
 )
 
 type IClientStore interface {

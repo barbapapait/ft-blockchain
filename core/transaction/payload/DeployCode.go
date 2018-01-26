@@ -1,11 +1,11 @@
 package payload
 
 import (
-	. "DNA/core/code"
-	"DNA/common/serialization"
+	. "ft-blockchain/core/code"
+	"ft-blockchain/common/serialization"
 	"io"
-	"DNA/smartcontract/types"
-	"DNA/common"
+	"ft-blockchain/smartcontract/types"
+	"ft-blockchain/common"
 )
 
 type DeployCode struct {

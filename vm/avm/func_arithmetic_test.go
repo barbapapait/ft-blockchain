@@ -3,7 +3,7 @@ package avm
 import (
 	"testing"
 	"math/big"
-	"DNA/vm/avm/types"
+	"ft-blockchain/vm/avm/types"
 )
 
 var (

@@ -1,14 +1,14 @@
 package transaction
 
 import (
-	"DNA/common"
-	"DNA/core/asset"
-	"DNA/core/code"
-	"DNA/core/contract/program"
-	"DNA/core/forum"
-	"DNA/core/transaction/payload"
-	"DNA/crypto"
-	"DNA/smartcontract/types"
+	"ft-blockchain/common"
+	"ft-blockchain/core/asset"
+	"ft-blockchain/core/code"
+	"ft-blockchain/core/contract/program"
+	"ft-blockchain/core/forum"
+	"ft-blockchain/core/transaction/payload"
+	"ft-blockchain/crypto"
+	"ft-blockchain/smartcontract/types"
 	"math/rand"
 	"strconv"
 )

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"encoding/binary"
 	"math/big"
-	"DNA/common"
+	"ft-blockchain/common"
 )
 
 var (

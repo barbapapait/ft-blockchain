@@ -2,7 +2,7 @@ package abi
 
 import (
 	"reflect"
-	"DNA/vm/evm/common"
+	"ft-blockchain/vm/evm/common"
 )
 
 func packBytesSlice(bytes []byte, l int) []byte {

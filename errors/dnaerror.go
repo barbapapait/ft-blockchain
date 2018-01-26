@@ -1,24 +1,24 @@
 package errors
 
-type dnaError struct {
+type DetailedError struct {
 	errmsg string
 	callstack *CallStack
 	root error
 	code ErrCode
 }
 
-func (e dnaError) Error() string {
+func (e DetailedError) Error() string {
 	return e.errmsg
 }
 
-func (e dnaError) GetErrCode()  ErrCode {
+func (e DetailedError) GetErrCode()  ErrCode {
 	return e.code
 }
 
-func (e dnaError) GetRoot()  error {
+func (e DetailedError) GetRoot()  error {
 	return e.root
 }
 
-func (e dnaError) GetCallStack()  *CallStack {
+func (e DetailedError) GetCallStack()  *CallStack {
 	return e.callstack
 }

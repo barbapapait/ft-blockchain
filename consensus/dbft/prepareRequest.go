@@ -1,11 +1,11 @@
 package dbft
 
 import (
-	. "DNA/common"
-	"DNA/common/log"
-	ser "DNA/common/serialization"
-	tx "DNA/core/transaction"
-	. "DNA/errors"
+	. "ft-blockchain/common"
+	"ft-blockchain/common/log"
+	ser "ft-blockchain/common/serialization"
+	tx "ft-blockchain/core/transaction"
+	. "ft-blockchain/errors"
 	"io"
 )
 

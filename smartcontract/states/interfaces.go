@@ -2,8 +2,8 @@ package states
 
 import (
 	"io"
-	"DNA/vm/avm/interfaces"
-	"DNA/core/store"
+	"ft-blockchain/vm/avm/interfaces"
+	"ft-blockchain/core/store"
 	"bytes"
 )
 

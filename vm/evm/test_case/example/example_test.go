@@ -2,7 +2,7 @@ package test
 
 import (
 	"testing"
-	"DNA/vm/evm/test_case"
+	"ft-blockchain/vm/evm/test_case"
 )
 
 const (

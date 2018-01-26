@@ -1,12 +1,12 @@
 package protocol
 
 import (
-	"DNA/common"
-	"DNA/core/ledger"
-	"DNA/core/transaction"
-	"DNA/crypto"
-	. "DNA/errors"
-	"DNA/events"
+	"ft-blockchain/common"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/core/transaction"
+	"ft-blockchain/crypto"
+	. "ft-blockchain/errors"
+	"ft-blockchain/events"
 	"bytes"
 	"encoding/binary"
 	"time"

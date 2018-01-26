@@ -3,15 +3,15 @@ package httpwebsocket
 import (
 	"bytes"
 
-	. "DNA/common"
-	. "DNA/common/config"
-	"DNA/core/ledger"
-	"DNA/events"
-	"DNA/net/httprestful/common"
-	Err "DNA/net/httprestful/error"
-	"DNA/net/httpwebsocket/websocket"
-	"DNA/net/message"
-	. "DNA/net/protocol"
+	. "ft-blockchain/common"
+	. "ft-blockchain/common/config"
+	"ft-blockchain/core/ledger"
+	"ft-blockchain/events"
+	"ft-blockchain/net/httprestful/common"
+	Err "ft-blockchain/net/httprestful/error"
+	"ft-blockchain/net/httpwebsocket/websocket"
+	"ft-blockchain/net/message"
+	. "ft-blockchain/net/protocol"
 )
 
 var ws *websocket.WsServer
